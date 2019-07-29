@@ -104,7 +104,7 @@ static int cr0cd_write(struct cdev *dev __unused, struct uio *uio,
   int_to_bits(CR0, bits);
   printf("<BEFORE> CURRENT CR0: %s\n", bits);
 
-  error = uiomove(mode, uio->uio_resid, uio);
+  error = uiomove(mode, sizeof(mode), uio);
   if (error != 0) {
     uprintf("Copy from user failed: bad address!\n");
     return error;
